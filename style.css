@@ -78,3 +78,46 @@ li {
 span {
   background-color: #e9cb5e;
 }
+
+@media screen and (max-width: 768px) {
+  #main {
+    width: 90%;
+    height: 80vh;
+  }
+  #todoInput button {
+    width: 100%;
+    margin: 2px 0;
+  }
+  #todoInp {
+    width: 100%;
+    margin-bottom: 6px;
+  }
+  li {
+    width: 100%;
+  }
+
+  #main h1 {
+    font-size: 30px;
+  }
+  #todoInp {
+    font-size: 14px;
+  }
+  .btn {
+    font-size: 14px;
+  }
+  .btn2 {
+    font-size: 14px;
+  }
+  .btn:hover {
+    font-size: 14px;
+  }
+  .btn2:hover {
+    font-size: 14px;
+  }
+  li {
+    font-size: 14px;
+  }
+  span {
+    font-size: 14px;
+  }
+}
