@@ -16,7 +16,7 @@ body {
 }
 
 #main {
-  width: 60%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   justify-items: center;
@@ -78,7 +78,7 @@ body {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  gap: 14px;
+  gap: 24px;
   margin-top: 10px;
   color: white;
 }
@@ -88,7 +88,7 @@ body {
   border-radius: 8px;
   font-size: 18px;
   font-weight: 600;
-  margin: 22px 6px;
+  margin: 18px 6px;
 }
 
 @media screen and (max-width: 768px) {
