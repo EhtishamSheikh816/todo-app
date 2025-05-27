@@ -16,7 +16,7 @@ body {
 }
 
 #main {
-  width: 100%;
+  width: 60%;
   display: flex;
   flex-direction: column;
   justify-items: center;
@@ -89,4 +89,19 @@ body {
   font-size: 18px;
   font-weight: 600;
   margin: 22px 6px;
+}
+
+@media screen and (max-width: 768px) {
+  #main {
+    width: 90%;
+  }
+  .inpTxt {
+    width: 100%;
+  }
+  #todoUl {
+    width: 100%;
+  }
+  #todoUl li {
+    font-size: 18px;
+  }
 }
