@@ -36,4 +36,4 @@ To run this project locally:
 
 1. Clone the repository:
    ```bash
-   git clone 
+   git clone https://github.com/EhtishamSheikh816/todo-app.git
