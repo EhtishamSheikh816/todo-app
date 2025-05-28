@@ -12,13 +12,20 @@ const addTodo = () => {
     });
     return getAddTodoInp.value;
   } else {
+    // getTodoUl.innerHTML += `<li>
+    //       ${getAddTodoInp.value}
+    //       <span id="edtDelBtn">
+    //         <i class="fa-solid fa-pen-to-square" onclick="editTodo(this)"></i>
+    //         <i class="fa-solid fa-trash-can" onclick="delTodo(this)"></i>
+    //       </span>
+    //     </li>`;
     getTodoUl.innerHTML += `<li>
-          ${getAddTodoInp.value}
-          <span id="edtDelBtn">
-            <i class="fa-solid fa-pen-to-square" onclick="editTodo(this)"></i>
-            <i class="fa-solid fa-trash-can" onclick="delTodo(this)"></i>
-          </span>
-        </li>`;
+          <div class="text">${getAddTodoInp.value}</div> 
+        <span id="edtDelBtn">
+          <i class="fa-solid fa-pen-to-square" onclick="editTodo(this)"></i>
+          <i class="fa-solid fa-trash-can" onclick="delTodo(this)"></i>
+        </span>
+      </li>`;
     getAddTodoInp.value = "";
   }
   Swal.fire({

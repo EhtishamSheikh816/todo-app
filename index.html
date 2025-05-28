@@ -23,7 +23,10 @@
         id="search"
         placeholder="Search todos"
       />
-      <ul id="todoUl"></ul>
+      <ul id="todoUl">
+        
+      </li>
+      </ul>
       <div id="addSec">
         <h1>Add a new todo...</h1>
         <input
@@ -32,6 +35,7 @@
           class="inpTxt"
           id="addTodoInp"
           placeholder="Add Todos..."
+          onkeypress="if(event.code == 'Enter') addTodo()"
         />
         <span>
           <button class="btn" onclick="addTodo()">Submit</button>

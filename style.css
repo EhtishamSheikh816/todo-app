@@ -11,7 +11,7 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin: 30px 0;
+  margin: 30px 0 12px 0;
   background-color: #191970;
 }
 
@@ -33,14 +33,15 @@ body {
 
 .inpTxt {
   width: 60%;
-  padding: 10px 16px;
+  padding: 15px 16px;
   border-radius: 6px;
   border: none;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   margin-bottom: 2px;
   background-color: #5f7ad4;
   color: #333;
+  outline: none;
 }
 .inpTxt::placeholder {
   color: #333;
@@ -52,17 +53,28 @@ body {
   font-weight: 600;
   color: white;
   list-style: none;
+  max-height: 250px;
+  overflow-y: scroll;
 }
 
 #todoUl li {
   width: 100%;
+  min-height: 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #2a2a8a;
-  padding: 16px 20px;
+  padding: 15px 20px;
   border-radius: 6px;
   margin: 6px 0;
+}
+.text {
+  max-width: 85%;
+  height: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  text-align: left;
 }
 
 #edtDelBtn {
@@ -70,6 +82,9 @@ body {
   flex-direction: row;
   align-items: center;
   gap: 16px;
+}
+#edtDelBtn i {
+  cursor: pointer;
 }
 
 #addSec {
@@ -84,11 +99,13 @@ body {
 }
 
 .btn {
-  padding: 16px 20px;
+  padding: 12px 20px;
   border-radius: 8px;
   font-size: 18px;
   font-weight: 600;
   margin: 18px 6px;
+  cursor: pointer;
+  border: none;
 }
 
 @media screen and (max-width: 768px) {
@@ -100,6 +117,7 @@ body {
   }
   #todoUl {
     width: 100%;
+    max-height: 342px;
   }
   #todoUl li {
     font-size: 18px;
