@@ -109,6 +109,10 @@ body {
 }
 
 @media screen and (max-width: 768px) {
+  html,
+  body {
+    margin: 20px 0 12px 0;
+  }
   #main {
     width: 90%;
   }
@@ -117,7 +121,6 @@ body {
   }
   #todoUl {
     width: 100%;
-    max-height: 342px;
   }
   #todoUl li {
     font-size: 18px;
