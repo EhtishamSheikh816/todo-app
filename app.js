@@ -3,37 +3,57 @@ const getAddTodoInp = document.querySelector("#addTodoInp");
 const getTodoUl = document.querySelector("#todoUl");
 const lists = getTodoUl.getElementsByTagName("li");
 
+let userArr = JSON.parse(localStorage.getItem("setTodo") || "[]");
+
+const ShowTodo = () => {
+  // getTodoUl.innerHTML += `<li>
+  //         <div class="text">${getAddTodoInp.value}</div>
+  //       <span id="edtDelBtn">
+  //         <i class="fa-solid fa-pen-to-square" onclick="editTodo(this)"></i>
+  //         <i class="fa-solid fa-trash-can" onclick="delTodo(this)"></i>
+  //       </span>
+  //     </li>`;
+
+  let getTodoItem = JSON.parse(localStorage.getItem("setTodo"));
+  getTodoItem.forEach((todoItems) => {
+    getTodoUl.innerHTML += `<li>
+        <div class="text">${todoItems}</div>
+      <span id="edtDelBtn">
+        <i class="fa-solid fa-pen-to-square" onclick="editTodo(this)"></i>
+        <i class="fa-solid fa-trash-can" onclick="delTodo(this)"></i>
+      </span>
+    </li>`;
+  });
+};
+
 const addTodo = () => {
-  if (getAddTodoInp.value == "") {
+  let todo = getAddTodoInp.value;
+
+  if (todo == "") {
     Swal.fire({
       title: "Empty Input!",
       text: "Please enter a task.",
       icon: "error",
     });
-    return getAddTodoInp.value;
-  } else {
-    // getTodoUl.innerHTML += `<li>
-    //       ${getAddTodoInp.value}
-    //       <span id="edtDelBtn">
-    //         <i class="fa-solid fa-pen-to-square" onclick="editTodo(this)"></i>
-    //         <i class="fa-solid fa-trash-can" onclick="delTodo(this)"></i>
-    //       </span>
-    //     </li>`;
-    getTodoUl.innerHTML += `<li>
-          <div class="text">${getAddTodoInp.value}</div> 
-        <span id="edtDelBtn">
-          <i class="fa-solid fa-pen-to-square" onclick="editTodo(this)"></i>
-          <i class="fa-solid fa-trash-can" onclick="delTodo(this)"></i>
-        </span>
-      </li>`;
-    getAddTodoInp.value = "";
+    return todo;
   }
-  Swal.fire({
-    title: "Added!",
-    text: "Your task has been added.",
-    icon: "success",
-  });
+
+  if (userArr.includes(todo)) {
+    Swal.fire({
+      title: "Duplicate Task!",
+      text: "This task already exists.",
+      icon: "warning",
+    });
+    return todo;
+  }
+
+  userArr.push(todo);
+  localStorage.setItem("setTodo", JSON.stringify(userArr));
+  getAddTodoInp.value = "";
+
+  ShowTodo();
 };
+ShowTodo();
 
 const editTodo = (e) => {
   getAddTodoInp.value = e.parentNode.parentNode.textContent.trim();
