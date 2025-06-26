@@ -26,6 +26,10 @@ const ShowTodo = () => {
       </span>
     </li>`;
   });
+
+  if (getTodoItem.length === 0) {
+    getTodoUl.innerHTML = `<li class="no-todo">No tasks available</li>`;
+  }
 };
 
 const addTodo = () => {
