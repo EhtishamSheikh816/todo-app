@@ -14,7 +14,9 @@ const ShowTodo = () => {
   //       </span>
   //     </li>`;
 
+  getTodoUl.innerHTML = "";
   let getTodoItem = JSON.parse(localStorage.getItem("setTodo"));
+
   getTodoItem.forEach((todoItems) => {
     getTodoUl.innerHTML += `<li>
         <div class="text">${todoItems}</div>
@@ -53,12 +55,6 @@ const addTodo = () => {
 
   ShowTodo();
 };
-ShowTodo();
-
-const editTodo = (e) => {
-  getAddTodoInp.value = e.parentNode.parentNode.textContent.trim();
-  e.parentNode.parentNode.remove();
-};
 
 const delTodo = (e) => {
   Swal.fire({
@@ -71,8 +67,11 @@ const delTodo = (e) => {
     confirmButtonText: "Yes, delete it!",
   }).then((result) => {
     if (result.isConfirmed) {
-      e.parentNode.parentNode.remove();
       Swal.fire("Deleted!", "Your task has been deleted.", "success");
+      e.parentNode.parentNode.remove();
+      let task = e.parentNode.parentNode.textContent.trim();
+      userArr.splice(userArr.indexOf(task), 1);
+      localStorage.setItem("setTodo", JSON.stringify(userArr));
     }
   });
 };
@@ -96,11 +95,18 @@ const clearAll = () => {
       confirmButtonText: "Yes, clear all!",
     }).then((result) => {
       if (result.isConfirmed) {
-        getTodoUl.innerHTML = "";
         Swal.fire("Cleared!", "All tasks have been cleared.", "success");
+        getTodoUl.innerHTML = "";
+        userArr = [];
+        localStorage.setItem("setTodo", JSON.stringify(userArr));
       }
     });
   }
+};
+
+const editTodo = (e) => {
+  getAddTodoInp.value = e.parentNode.parentNode.textContent.trim();
+  e.parentNode.parentNode.remove();
 };
 
 getSearch.addEventListener("keyup", () => {
@@ -114,3 +120,5 @@ getSearch.addEventListener("keyup", () => {
     }
   }
 });
+
+ShowTodo();
